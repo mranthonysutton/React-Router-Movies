@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import MovieList from "./MovieList";
 
 const Movie = props => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
 
   useEffect(() => {
     const id = props.match.params.id;
@@ -43,11 +43,12 @@ const Movie = props => {
         </div>
         <h3>Actors</h3>
 
-        {/* {stars.map(star => (
+        {stars &&
+          stars.map(star => (
             <div key={star} className="movie-star">
               {star}
             </div>
-          ))} */}
+          ))}
       </div>
       <div className="save-button">Save</div>
     </div>
